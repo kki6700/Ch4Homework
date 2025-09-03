@@ -206,7 +206,7 @@ FString AHMGameModeBase::JudgeResult(const FString& InSecretNumberString, const 
 			}
 		}
 	}
-	if (StrikeCount == 0&& BallCount == 3)
+	if (StrikeCount == 0&& BallCount == 0)
 	{
 		return TEXT("OUT");
 		
