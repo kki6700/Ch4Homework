@@ -19,7 +19,7 @@ void AHMPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 
 FString AHMPlayerState::GetPlayerInfoString()
 {
-	FString PlayerInfoString = PlayerNameString + TEXT("(") + FString::FromInt(CurrentGuesssCount) + TEXT("/") + FString::FromInt(MaxGuessesCount) + TEXT(")");
+	FString PlayerInfoString = PlayerNameString + TEXT("(") + FString::FromInt(CurrentGuesssCount+1) + TEXT("/") + FString::FromInt(MaxGuessesCount) + TEXT(")");
 	return PlayerInfoString;
 }
 

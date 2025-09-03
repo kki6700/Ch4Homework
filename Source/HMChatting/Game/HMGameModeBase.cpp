@@ -46,8 +46,11 @@ void AHMGameModeBase::PrintChatMessageString(AHMPlayerController* InChattingPlay
 
 	FString GuessMumberString = InChatMessageString.RightChop(Index);
 
+	
+	
 	if (IsGuessNumberString(GuessMumberString) == true)
 	{
+		
 		FString JudgeResultString = JudgeResult(SecretNumberString, GuessMumberString);
 		IncrementGuessCount(InChattingPlayerController);
 		for (TActorIterator<AHMPlayerController>It(GetWorld()); It; ++It)
@@ -76,6 +79,8 @@ void AHMGameModeBase::PrintChatMessageString(AHMPlayerController* InChattingPlay
 			}
 		}
 	}
+
+	
 }
 
 void AHMGameModeBase::IncrementGuessCount(AHMPlayerController* InChattingPlayerPlayerController)
@@ -179,7 +184,7 @@ void AHMGameModeBase::JudgeGame(AHMPlayerController* InChattingPlayerController,
 		{
 			for (const auto& HMPlayerController: AllPlayerControllers)
 			{
-				HMPlayerController ->NotificationText = FText::FromString(TEXT("Doro.."));
+				HMPlayerController ->NotificationText = FText::FromString(TEXT("Doro.. 무승부"));
 			}
 			ResetGame();
 		}
@@ -218,6 +223,7 @@ FString AHMGameModeBase::JudgeResult(const FString& InSecretNumberString, const 
 void AHMGameModeBase::ResetGame()
 {
 	SecretNumberString = GenerateSecretNumber();
+	UE_LOG(LogTemp,Error,TEXT("Secret Number is %s"),*SecretNumberString);
 	for (const auto& HMPlayerController: AllPlayerControllers)
 	{
 		AHMPlayerState* HMPS = HMPlayerController -> GetPlayerState<AHMPlayerState>();
